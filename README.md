@@ -85,3 +85,15 @@ infra-lab-2.0/
 └── docs/
     ├── architecture-diagram.md
     └── resilience-tests.md
+```
+
+## Status
+- See STATUS.md for current phase and next steps.
+- See PROJECT-OUTLINE.md for the full roadmap.
+
+## Tech Stack
+- Infra: Azure, Terraform, AKS, Linux VMs
+- Delivery: Cloudflare (DNS/CDN/WAF), simulated multi-CDN failover
+- Apps: React (frontend), Python (APIs)
+- Ops: HPA, cluster autoscaler, scheduled scaling, runbooks
+This is a learning + portfolio lab, not production infrastructure.
