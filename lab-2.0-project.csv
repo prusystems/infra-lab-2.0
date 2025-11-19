@@ -1,0 +1,48 @@
+Title,Description,Status,Labels,Milestone
+"Phase 0: Create repo and base files","Create the repo (infra-lab-2.0) and add README, PROJECT-OUTLINE, STATUS, SECURITY, and docs/ folder.","Backlog","phase-0,documentation","Phase 0 – Foundations"
+"Phase 0: Configure Azure CLI on Mac","Install and log into Azure CLI from your Mac. Verify `az login` works and subscription is selected.","Backlog","phase-0,azure,cli","Phase 0 – Foundations"
+"Phase 0: Confirm Cloudflare account & token","Verify Cloudflare account, create an API token with correct permissions, and store it securely (not in git).","Backlog","phase-0,cloudflare,security","Phase 0 – Foundations"
+"Phase 0: Define naming conventions","Decide and document naming conventions for resource groups, VNets, AKS clusters, VMs, and DNS records.","Backlog","phase-0,design","Phase 0 – Foundations"
+
+"Phase 1: Terraform providers & versions","Create providers.tf and versions.tf for azurerm and cloudflare with pinned versions.","Backlog","phase-1,terraform","Phase 1 – Network & Identity"
+"Phase 1: Resource group module","Create Terraform to define the main resource group for the lab.","Backlog","phase-1,terraform,network","Phase 1 – Network & Identity"
+"Phase 1: Virtual network & subnets","Create network module for VNet and subnets (aks, db, bastion) with outputs for subnet IDs.","Backlog","phase-1,terraform,network","Phase 1 – Network & Identity"
+"Phase 1: Network security groups","Attach NSGs to subnets with basic allow/deny rules (app ↔ db, bastion ↔ private, internet ↔ ingress).","Backlog","phase-1,security,network","Phase 1 – Network & Identity"
+"Phase 1: Validate network plan","Apply/destroy network module and confirm resources look correct in Azure portal.","Backlog","phase-1,testing,azure","Phase 1 – Network & Identity"
+
+"Phase 2: AKS cluster module","Create AKS module with cluster, node pool, and managed identity configuration.","Backlog","phase-2,aks,terraform","Phase 2 – AKS & Autoscaling"
+"Phase 2: Enable AKS cluster autoscaler","Configure default node pool with min/max node counts and autoscaling enabled.","Backlog","phase-2,aks,autoscaling","Phase 2 – AKS & Autoscaling"
+"Phase 2: Install NGINX ingress controller","Deploy NGINX ingress (Helm or manifests) into the AKS cluster and expose a test endpoint.","Backlog","phase-2,aks,ingress","Phase 2 – AKS & Autoscaling"
+"Phase 2: Deploy test API and frontend","Deploy a simple test API and dummy frontend to AKS to confirm ingress works end-to-end.","Backlog","phase-2,aks,app","Phase 2 – AKS & Autoscaling"
+"Phase 2: Configure Horizontal Pod Autoscaler","Create HPA for the API deployment based on CPU utilization and test with synthetic load.","Backlog","phase-2,autoscaling,hpa","Phase 2 – AKS & Autoscaling"
+"Phase 2: Validate cluster autoscaler","Generate enough load to trigger additional AKS nodes and verify scale-out and scale-in behavior.","Backlog","phase-2,autoscaling,testing","Phase 2 – AKS & Autoscaling"
+
+"Phase 3: Linux VMs module","Create linux-vms module for db-vm-01, bastion-vm, and optional ops-vm.","Backlog","phase-3,terraform,vm","Phase 3 – Linux VMs & Database"
+"Phase 3: Provision database VM","Install and configure Postgres (or chosen DB) on db-vm-01, locked to the db subnet.","Backlog","phase-3,database,linux","Phase 3 – Linux VMs & Database"
+"Phase 3: Bastion host configuration","Configure bastion-vm for SSH access into the private network, using key-based auth.","Backlog","phase-3,security,vm","Phase 3 – Linux VMs & Database"
+"Phase 3: App-to-DB connectivity","Wire API to DB via private IPs and confirm basic read/write operations.","Backlog","phase-3,app,database","Phase 3 – Linux VMs & Database"
+
+"Phase 4: Create app-lab repo","Create a separate repo for the React + Python application code and basic Dockerfiles.","Backlog","phase-4,app,repo","Phase 4 – App Deployment"
+"Phase 4: Containerize Python API","Write Dockerfile for Python API (FastAPI/Flask), build and push image to a registry.","Backlog","phase-4,api,containers","Phase 4 – App Deployment"
+"Phase 4: Containerize React frontend","Build React app and serve via NGINX (or similar) container for AKS.","Backlog","phase-4,frontend,containers","Phase 4 – App Deployment"
+"Phase 4: Helm charts or manifests","Create Helm charts or K8s manifests for frontend + API deployments, services, and ingresses.","Backlog","phase-4,helm,kubernetes","Phase 4 – App Deployment"
+"Phase 4: Liveness & readiness probes","Add health probes to API and frontend deployments and validate behavior under restart/failure.","Backlog","phase-4,observability,health","Phase 4 – App Deployment"
+
+"Phase 5: Cloudflare DNS & CDN module","Create dns-cdn module for Cloudflare zone, A/CNAME records, and proxied traffic.","Backlog","phase-5,cloudflare,terraform","Phase 5 – CDN & Failover"
+"Phase 5: WAF and basic rules","Configure Cloudflare WAF rules to block obvious bad traffic and protect the app.","Backlog","phase-5,cloudflare,security","Phase 5 – CDN & Failover"
+"Phase 5: Secondary CDN/failover design","Design secondary CDN (Akamai-style) pattern and document how failover would work.","Backlog","phase-5,cdn,design","Phase 5 – CDN & Failover"
+"Phase 5: Test origin failure","Simulate primary origin outage and validate behavior (error path + manual/documented failover).","Backlog","phase-5,testing,resilience","Phase 5 – CDN & Failover"
+
+"Phase 6: Define business-hour load pattern","Describe East/West clinic usage patterns and translate into approximate RPS targets for testing.","Backlog","phase-6,capacity-planning,design","Phase 6 – Time-Zone Scaling"
+"Phase 6: Implement scheduled scaling","Create script or GitHub Action to adjust AKS min node counts for business vs off-hours.","Backlog","phase-6,autoscaling,scheduling","Phase 6 – Time-Zone Scaling"
+"Phase 6: Validate day vs night behavior","Use load tests to confirm different scaling behavior during “day” vs “night” windows.","Backlog","phase-6,testing,autoscaling","Phase 6 – Time-Zone Scaling"
+
+"Phase 7: Pod failure drills","Delete pods intentionally and verify deployments + HPA restore service quickly.","Backlog","phase-7,resilience,testing","Phase 7 – Resilience Drills"
+"Phase 7: Node failure drills","Cordon/drain nodes or stop them and observe workload rescheduling and cluster behavior.","Backlog","phase-7,resilience,aks","Phase 7 – Resilience Drills"
+"Phase 7: Database outage drill","Stop DB service or block DB network path, observe app behavior, and document recovery steps.","Backlog","phase-7,resilience,database","Phase 7 – Resilience Drills"
+"Phase 7: Document runbooks","Write incident runbooks for pod failure, node failure, DB outage, and origin/edge failures.","Backlog","phase-7,documentation,runbook","Phase 7 – Resilience Drills"
+
+"Phase 8: Design serverless alternative","Sketch architecture using static hosting, Azure Functions/Container Apps, and managed DB.","Backlog","phase-8,architecture,serverless","Phase 8 – Serverless Comparison"
+"Phase 8: Cost & risk comparison","Write cost-analysis.md comparing AKS-based vs serverless design and summarize tradeoffs.","Backlog","phase-8,cost,analysis","Phase 8 – Serverless Comparison"
+"Phase 8: Final summary & portfolio writeup","Write a concise case study explaining the lab, goals, architecture, scaling, and lessons learned.","Backlog","phase-8,documentation,portfolio","Phase 8 – Serverless Comparison"
+
