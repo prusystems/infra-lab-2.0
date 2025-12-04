@@ -7,11 +7,11 @@ This document tracks the phases and tasks for building the lab.
 
 ## Phase 0 – Foundations
 
-- [ ] Create repo `infra-lab-2.0`
-- [ ] Add README, PROJECT-OUTLINE, STATUS, SECURITY, docs/
-- [ ] Configure Azure CLI on Mac
-- [ ] Confirm Cloudflare account + API token
-- [ ] Decide naming convention (RG, VNet, AKS, VMs, etc.)
+- [x] Create repo `infra-lab-2.0`
+- [x] Add README, PROJECT-OUTLINE, STATUS, SECURITY, docs/
+- [x] Configure Azure CLI on Mac
+- [x] Confirm Cloudflare account + API token
+- [x] Decide naming convention (RG, VNet, AKS, VMs, etc.)
 
 ---
 
@@ -24,6 +24,7 @@ This document tracks the phases and tasks for building the lab.
   - [ ] NSGs (basic)
 - [ ] Outputs for subnet IDs, VNet
 - [ ] (Optional) Plan Azure AD / Entra integration for AKS identity
+  - [ ] Research requirements for Entra then update prequisites
 
 **Deliverable:** network module + successful apply/destroy.
 
