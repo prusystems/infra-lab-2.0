@@ -1,4 +1,4 @@
-```
+
 # Project Outline – Lab 2.0 Hybrid Cloud Resilience
 
 This document tracks the phases and tasks for building the lab.
