@@ -136,6 +136,3 @@ This document tracks the phases and tasks for building the lab.
 **Deliverable:** `docs/cost-analysis.md` + architecture B diagram.
 
 ---
-
-You do **not** have to finish every phase to start showing this project.  
-Even Phases 1–3 + basic docs already look very strong.
